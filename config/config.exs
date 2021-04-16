@@ -10,7 +10,7 @@ use Mix.Config
 config :mealixir,
   ecto_repos: [Mealixir.Repo]
 
-config: :mealixir, Mealixir.Repo,
+config :mealixir, Mealixir.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
