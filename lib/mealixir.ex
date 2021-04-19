@@ -1,9 +1,8 @@
 defmodule Mealixir do
-  @moduledoc """
-  Mealixir keeps the contexts that define your domain
-  and business logic.
+  alias Mealixir.Meals.{Create, Delete, Get, Update}
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate create_meal(params), to: Create, as: :call
+  defdelegate delete_meal(id), to: Delete, as: :call
+  defdelegate show_meal(id), to: Get, as: :call
+  defdelegate update_meal(params), to: Update, as: :call
 end
