@@ -7,9 +7,11 @@ defmodule Mealixir.Meal do
 
   @required_params [:description, :date, :calories]
 
+  @derive {Jason.Encoder, only: @required_params ++ [:id]}
+
   schema "meals" do
     field :description, :string
-    field :date, :utc_datetime
+    field :date, :utc_datetime_usec, default: DateTime.now!("Etc/UTC")
     field :calories, :integer
 
     timestamps()
