@@ -1,6 +1,6 @@
 defmodule Mealixir.Meals.Delete do
   alias Ecto.UUID
-  alias Mealixir.{Meal, Repo}
+  alias Mealixir.{Error, Meal, Repo}
 
   def call(id) do
     case UUID.cast(id) do
@@ -11,7 +11,7 @@ defmodule Mealixir.Meals.Delete do
 
   defp delete(id) do
     case Repo.get(Meal, id) do
-      nil -> {:error, "Meal not found"}
+      nil -> {:error, Error.build_meal_not_found_error()}
       meal -> Repo.delete(meal)
     end
   end

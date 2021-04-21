@@ -1,5 +1,5 @@
 defmodule Mealixir.Meals.Create do
-  alias Mealixir.{Meal, Repo}
+  alias Mealixir.{Error, Meal, Repo}
 
   def call(params) do
     params
@@ -10,5 +10,7 @@ defmodule Mealixir.Meals.Create do
 
   defp handle_insert({:ok, %Meal{}} = result), do: result
 
-  defp handle_insert({:error, _result}), do: {:error, "Something went wrong"}
+  defp handle_insert({:error, result}) do
+    {:error, Error.build(:bad_request, result)}
+  end
 end
