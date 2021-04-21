@@ -2,6 +2,9 @@ defmodule MealixirWeb.MealsController do
   use MealixirWeb, :controller
 
   alias Mealixir.Meal
+  alias MealixirWeb.FallbackController
+
+  action_fallback FallbackController
 
   def create(conn, params) do
     with {:ok, %Meal{} = meal} <- Mealixir.create_meal(params) do
