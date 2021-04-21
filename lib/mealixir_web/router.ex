@@ -1,8 +1,11 @@
 defmodule MealixirWeb.Router do
   use MealixirWeb, :router
 
+  alias MealixirWeb.Plugs.UUIDChecker
+
   pipeline :api do
     plug :accepts, ["json"]
+    plug UUIDChecker
   end
 
   scope "/api", MealixirWeb do
