@@ -3,7 +3,10 @@ defmodule Mealixir.Meal do
 
   import Ecto.Changeset
 
+  alias Mealixir.User
+
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
 
   @required_params [:description, :date, :calories]
 
@@ -13,6 +16,8 @@ defmodule Mealixir.Meal do
     field :description, :string
     field :date, :utc_datetime_usec, default: DateTime.now!("Etc/UTC")
     field :calories, :integer
+
+    belongs_to :user, User
 
     timestamps()
   end
