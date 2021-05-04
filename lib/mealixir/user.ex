@@ -26,5 +26,7 @@ defmodule Mealixir.User do
     |> validate_required(@required_params)
     |> validate_length(:cpf, is: 11)
     |> validate_format(:email, ~r/@/)
+    |> unique_constraint([:cpf])
+    |> unique_constraint([:email])
   end
 end
