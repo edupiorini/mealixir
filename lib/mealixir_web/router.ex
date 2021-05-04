@@ -12,6 +12,8 @@ defmodule MealixirWeb.Router do
     pipe_through :api
 
     resources "/meals", MealsController, except: [:edit, :new]
+
+    post "/users", UsersController, :create
   end
 
   # Enables LiveDashboard only for development
