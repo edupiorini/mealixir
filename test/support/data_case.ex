@@ -16,6 +16,8 @@ defmodule Mealixir.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       alias Mealixir.Repo
@@ -28,10 +30,10 @@ defmodule Mealixir.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Mealixir.Repo)
+    :ok = Sandbox.checkout(Mealixir.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Mealixir.Repo, {:shared, self()})
+      Sandbox.mode(Mealixir.Repo, {:shared, self()})
     end
 
     :ok

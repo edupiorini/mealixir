@@ -17,6 +17,8 @@ defmodule MealixirWeb.ChannelCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       # Import conveniences for testing with channels
@@ -29,10 +31,10 @@ defmodule MealixirWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Mealixir.Repo)
+    :ok = Sandbox.checkout(Mealixir.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Mealixir.Repo, {:shared, self()})
+      Sandbox.mode(Mealixir.Repo, {:shared, self()})
     end
 
     :ok
