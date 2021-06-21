@@ -1,5 +1,9 @@
 # Mealixir
 
+[![codecov](https://codecov.io/gh/edupiorini/mealixir/branch/main/graph/badge.svg?token=2927MD279D)](https://codecov.io/gh/edupiorini/mealixir)
+
+
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
