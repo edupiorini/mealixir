@@ -1,0 +1,11 @@
+{
+    "skip_files": [
+        "test/support",
+        "lib/mealixir_web/channels/user_socket.ex",
+        "0.0% test/support/channel_case.ex",
+        "test/support/data_case.ex",
+        "test/support/conn_case.ex",
+        "lib/mealixir_web/gettext.ex",
+        "lib/mealixir_web/endpoint.ex"
+    ]
+}
